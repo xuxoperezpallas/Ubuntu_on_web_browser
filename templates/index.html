@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Sesiones Ubuntu VNC</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Acceso a Ubuntu VNC</h1>
+        
+        {% if error %}
+            <div class="alert error">{{ error }}</div>
+        {% endif %}
+        
+        {% if session_url %}
+            <div class="alert success">
+                Sesión iniciada para <strong>{{ username }}</strong>
+                <p><a href="{{ session_url }}" target="_blank">Acceder ahora</a></p>
+            </div>
+        {% endif %}
+        
+        <div class="card">
+            <h2>Crear Nueva Sesión</h2>
+            <form action="/start-session" method="POST">
+                <div class="form-group">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" id="username" name="username" placeholder="invitado">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña VNC:</label>
+                    <input type="password" id="password" name="password" value="password123">
+                </div>
+                
+                <div class="form-group">
+                    <label for="resolution">Resolución:</label>
+                    <select id="resolution" name="resolution">
+                        <option value="1280x720">1280x720 (HD)</option>
+                        <option value="1920x1080">1920x1080 (Full HD)</option>
+                        <option value="2560x1440">2560x1440 (2K)</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+        
+        <div class="card">
+            <h2>Sesiones Activas</h2>
+            <button onclick="window.location.href='/list-sessions'">Actualizar Lista</button>
+            
+            {% if sessions %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for session in sessions %}
+                        <tr>
+                            <td>{{ session.name }}</td>
+                            <td>{{ session.status }}</td>
+                            <td><a href="{{ session.url }}" target="_blank">Conectar</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No hay sesiones activas</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
