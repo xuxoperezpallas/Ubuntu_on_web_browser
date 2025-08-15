@@ -1,15 +1,24 @@
-# Gestor de Contenedores VNC
+# Gestor de Contenedores Ubuntu VNC
 
-Este proyecto permite iniciar contenedores Docker con escritorio Ubuntu VNC bajo demanda, proporcionando acceso a través del navegador.
+Este proyecto permite crear sesiones Ubuntu VNC bajo demanda con un simple interfaz web, utilizando Docker y Python.
 
-## Requisitos
+## Características principales
 
-- Docker instalado y el usuario en el grupo `docker`.
-- Python 3.6 o superior.
+- 🚀 Creación instantánea de sesiones Ubuntu en contenedores Docker
+- 🌐 Interfaz web intuitiva para gestionar sesiones
+- 🔒 Configuración personalizada de resolución y contraseña
+- 📊 Visualización de todas las sesiones activas
+- ⚙️ Fácil despliegue con Docker Compose
 
-## Instalación
+## Requisitos previos
 
-1. Clonar el repositorio:
+- Docker instalado
+- Docker Compose instalado
+- Acceso a internet para descargar imágenes
+
+## Instalación y uso
+
+1. **Clonar el repositorio:**
    ```bash
    git clone https://github.com/xuxoperezpallas/Ubuntu_on_web_browser.git
    cd Ubuntu_on_web_browser
