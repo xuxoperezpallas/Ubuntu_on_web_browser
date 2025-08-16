@@ -22,3 +22,5 @@ Este proyecto permite crear sesiones Ubuntu VNC bajo demanda con un simple inter
    ```bash
    git clone https://github.com/xuxoperezpallas/Ubuntu_on_web_browser.git
    cd Ubuntu_on_web_browser
+
+[![Sponsor](https://img.shields.io/badge/-Sponsor-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/xuxoperezpallas)
